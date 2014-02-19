@@ -1,0 +1,19 @@
+# This defines the content types that are allowed to be returned as JSON
+
+# to allow all:
+# allowed: true
+allowed:
+# the next level key should be the name of the content type
+# it's value can be true or have more params
+  entries:
+# if you wish to add various filters to the content (where clauses) add a key of filters next
+    filters:
+# filters can be called to be used in a url like /entries/json/data.js?filter=default
+# NOTE: the first filter will be called by default when no filter is passed
+# this sample default returns nothing
+      default:
+        slug: NULL
+# In the following example the by calling the url /entries/json/data.js?filter=thetest
+# the where clause slug = 'test' will be appended
+      thetest: 
+        slug: "test"
