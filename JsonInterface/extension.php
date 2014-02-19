@@ -19,7 +19,7 @@ class Extension extends \Bolt\BaseExtension
         $data = array(
             'name' => "JsonInterface",
             'description' => "An extension to output JSON data structures of your content for your Bolt website.",
-            'author' => "Bob den Otter",
+            'author' => "Bob den Otter, DeanoDee",
             'link' => "http://bolt.cm",
             'version' => "0.8",
             'required_bolt_version' => "1.2.0",
