@@ -7,9 +7,7 @@ extension to get JSON(p) from Bolt. use as `/json/pages?limit=1&callback=c`
 
 Example: `enabled_extensions: [ JSON, your_other_extensions... ]`
 
-Support
-=======
-https://gist.github.com/bobdenotter/6732168
+This was based off of https://gist.github.com/bobdenotter/6732168
 
 
 ***
