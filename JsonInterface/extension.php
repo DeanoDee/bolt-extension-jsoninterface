@@ -1,5 +1,5 @@
 <?php
-// JsonInterface Extension for Bolt, by Bob den Otter & Dino DiGiulio
+// JsonInterface Extension for Bolt, by Bob den Otter
 
 namespace JsonInterface;
 
@@ -8,7 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Extension extends \Bolt\BaseExtension
 {
-
+private $where = "";
+    
     private $limit = 10;
     
     private $order = "id";
@@ -114,10 +115,10 @@ class Extension extends \Bolt\BaseExtension
         } 
         $content_type = $this->app['storage']->getContenttype($contenttypeslug);
         if (isset($content_type["name"])) {
-	    	$this->content_name = strtolower($content_type["name"]);;
-    	}
+            $this->content_name = strtolower($content_type["name"]);;
+        }
         if (!empty($contenttypeslug)) {
-	    	return true; 
+            return true; 
         } 
         $notice = "Contenttype '". safeString($contenttypeslug) . "' does not exist.";
         $this->setNotice($notice);
@@ -132,14 +133,14 @@ class Extension extends \Bolt\BaseExtension
      */
     private function testIsAllowed($contenttypeslug)
     {
-    	$has_allowed = isset($this->config["allowed"]);
-    	$all_allowed = $has_allowed ? $this->config["allowed"] === true : false;
-    	$filter_allowed = $has_allowed ? array_key_exists($this->content_name, $this->config["allowed"]) : false;
-    	
-    	
+        $has_allowed = isset($this->config["allowed"]);
+        $all_allowed = $has_allowed ? $this->config["allowed"] === true : false;
+        $filter_allowed = $has_allowed ? array_key_exists($this->content_name, $this->config["allowed"]) : false;
+        
+        
         $is_allowed = $all_allowed || $filter_allowed;
         if ($is_allowed) {
-	    	return true; 
+            return true; 
         } 
         $notice = "Contenttype '". safeString($contenttypeslug) . "' is not allowed.";
         $this->setNotice($notice);
@@ -155,7 +156,7 @@ class Extension extends \Bolt\BaseExtension
    
         $filter_is_set = isset($_GET['filter']) && isset($this->config["allowed"][$this->content_name]["filters"]);
         if(!$filter_is_set) {
-	        return;
+            return;
         } 
          
         $filters = $this->config["allowed"][$this->content_name]["filters"];
@@ -198,7 +199,7 @@ class Extension extends \Bolt\BaseExtension
                 $dummy, 
                 $this->where
         );
-		
+        
         if (!empty($records)) {
         
             foreach($records as $record) {
