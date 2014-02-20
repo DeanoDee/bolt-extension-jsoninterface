@@ -1,5 +1,5 @@
 <?php
-// JsonInterface Extension for Bolt, by Bob den Otter
+// JsonInterface Extension for Bolt, by Bob den Otter & Dino DiGiulio
 
 namespace JsonInterface;
 
